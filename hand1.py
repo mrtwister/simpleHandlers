@@ -99,19 +99,6 @@ def scan_wifi(hashMap,_files=None,_data=None):
 			"width": "match_parent",
 			"weight": "0",
 			"Elements": [
-
-			  {
-				"type": "CheckBox",
-				"Value": "@markdown",
-				"NoRefresh": False,
-				"document_type": "",
-				"mask": "",
-				"Variable": "markdown",
-				"BackgroundColor": "#DB7093",
-				"width": "match_parent",
-				"height": "wrap_content",
-				"weight": 2
-				},  
 			
 			{
 			"type": "LinearLayout",
@@ -162,7 +149,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 
 			j["customcards"]["cardsdata"]=[]
 			for line in wifi:
-				hashMap.put("toast", "SSID:" + str(line['SSID']) + ". level:" + str(line['level']))
+				
 				c =  {
 					"key": str(line['BSSID']),
 					"ssid": "SSID:"+"<b>"+str(line['SSID'])+"</b>",
