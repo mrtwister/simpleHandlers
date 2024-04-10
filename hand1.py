@@ -74,110 +74,120 @@ def on_start_barcode(hashMap,_files=None,_data=None):
 def scan_wifi(hashMap,_files=None,_data=None):
 	
 	
-#	if not hashMap.containsKey("WIFIConnectScan"):	
-	hashMap.put("WIFIConnectScan","")
-	hashMap.put("WIFIStartScan","")
+	if not hashMap.containsKey("WIFIConnectScan"):	
+		hashMap.put("WIFIConnectScan","")
+		hashMap.put("WIFIStartScan","")
 	
 
-	j = { "customcards":         {
-		"options":{
-		  "search_enabled":True,
-		  "save_position":True
-		},
+# 	j = { "customcards":         {
+# 		"options":{
+# 		  "search_enabled":True,
+# 		  "save_position":True
+# 		},
 
-		"layout": {
-		"type": "LinearLayout",
-		"orientation": "vertical",
-		"height": "match_parent",
-		"width": "match_parent",
-		"weight": "0",
-		"Elements": [
-		{
-			"type": "LinearLayout",
-			"orientation": "horizontal",
-			"height": "wrap_content",
-			"width": "match_parent",
-			"weight": "0",
-			"Elements": [
+# 		"layout": {
+# 		"type": "LinearLayout",
+# 		"orientation": "vertical",
+# 		"height": "match_parent",
+# 		"width": "match_parent",
+# 		"weight": "0",
+# 		"Elements": [
+# 		{
+# 			"type": "LinearLayout",
+# 			"orientation": "horizontal",
+# 			"height": "wrap_content",
+# 			"width": "match_parent",
+# 			"weight": "0",
+# 			"Elements": [
 
-			  {
-				"type": "CheckBox",
-				"Value": "@markdown",
-				"NoRefresh": False,
-				"document_type": "",
-				"mask": "",
-				"Variable": "markdown",
-				"BackgroundColor": "#DB7093",
-				"width": "match_parent",
-				"height": "wrap_content",
-				"weight": 2
-				},  
+# 			  {
+# 				"type": "CheckBox",
+# 				"Value": "@markdown",
+# 				"NoRefresh": False,
+# 				"document_type": "",
+# 				"mask": "",
+# 				"Variable": "markdown",
+# 				"BackgroundColor": "#DB7093",
+# 				"width": "match_parent",
+# 				"height": "wrap_content",
+# 				"weight": 2
+# 				},  
 			
-			{
-			"type": "LinearLayout",
-			"orientation": "vertical",
-			"height": "wrap_content",
-			"width": "match_parent",
-			"weight": "1",
-			"Elements": [
-			{
-				"type": "TextView",
-				"show_by_condition": "",
-				"Value": "@ssid",
-				"NoRefresh": False,
-				"document_type": "",
-				"mask": "",
-				"Variable": ""
-			},
-			{
-				"type": "TextView",
-				"show_by_condition": "",
-				"Value": "@bssid",
-				"NoRefresh": False,
-				"document_type": "",
-				"mask": "",
-				"Variable": ""
-			},
-			{
-				"type": "TextView",
-				"show_by_condition": "",
-				"Value": "@level",
-				"NoRefresh": False,
-				"document_type": "",
-				"mask": "",
-				"Variable": ""
-			}
-			]
-			}
-			]
-		}
-		]
-	}
+# 			{
+# 			"type": "LinearLayout",
+# 			"orientation": "vertical",
+# 			"height": "wrap_content",
+# 			"width": "match_parent",
+# 			"weight": "1",
+# 			"Elements": [
+# 			{
+# 				"type": "TextView",
+# 				"show_by_condition": "",
+# 				"Value": "@ssid",
+# 				"NoRefresh": False,
+# 				"document_type": "",
+# 				"mask": "",
+# 				"Variable": ""
+# 			},
+# 			{
+# 				"type": "TextView",
+# 				"show_by_condition": "",
+# 				"Value": "@bssid",
+# 				"NoRefresh": False,
+# 				"document_type": "",
+# 				"mask": "",
+# 				"Variable": ""
+# 			},
+# 			{
+# 				"type": "TextView",
+# 				"show_by_condition": "",
+# 				"Value": "@level",
+# 				"NoRefresh": False,
+# 				"document_type": "",
+# 				"mask": "",
+# 				"Variable": ""
+# 			}
+# 			]
+# 			}
+# 			]
+# 		}
+# 		]
+# 	}
 
-}
-}
+# }
+# }
+# 	if hashMap.containsKey("WIFIResults"):
+# 		try:
+# 			wifi = json.loads(hashMap.get("WIFIResults"))
+
+# 			j["customcards"]["cardsdata"]=[]
+# 			for line in wifi:
+# 				hashMap.put("toast", "SSID:" + str(line['SSID']) + ". level:" + str(line['level']))
+# 				c =  {
+# 					"key": str(line['BSSID']),
+# 					"ssid": "SSID:"+"<b>"+str(line['SSID'])+"</b>",
+# 					"bssid": "BSSID:"+"<b>"+str(line['BSSID'])+"</b>",
+# 					"level": "level:"+"<b>"+str(line['level'])+"</b>"
+# 					}
+# 				if line['BSSID'] in selected:
+# 					c['markdown']=True    
+# 				j["customcards"]["cardsdata"].append(c)
+# 		except ValueError:
+# 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
+# 	else:
+# 		hashMap.put("toast", "no results1")
+
 	if hashMap.containsKey("WIFIResults"):
 		try:
 			wifi = json.loads(hashMap.get("WIFIResults"))
+			hashMap.put("toast", "ok")
 
-			j["customcards"]["cardsdata"]=[]
-			for line in wifi:
-				hashMap.put("toast", "SSID:" + str(line['SSID']) + ". level:" + str(line['level']))
-				c =  {
-					"key": str(line['BSSID']),
-					"ssid": "SSID:"+"<b>"+str(line['SSID'])+"</b>",
-					"bssid": "BSSID:"+"<b>"+str(line['BSSID'])+"</b>",
-					"level": "level:"+"<b>"+str(line['level'])+"</b>"
-					}
-				if line['BSSID'] in selected:
-					c['markdown']=True    
-				j["customcards"]["cardsdata"].append(c)
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
 	else:
 		hashMap.put("toast", "no results1")
 
 
-	hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
+# 	hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
 
 	return hashMap
