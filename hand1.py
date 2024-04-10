@@ -181,11 +181,11 @@ def scan_wifi(hashMap,_files=None,_data=None):
 		try:
 			wifi = json.loads(hashMap.get("WIFIResults"))
 			hashMap.put("toast", "ok")
-
+			hashMap.remove("WIFIResults")
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
 	else:
-		hashMap.put("toast", "no results2")
+		hashMap.put("toast", "no results3")
 
 
 # 	hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
