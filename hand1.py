@@ -67,8 +67,11 @@ def on_start_barcode(hashMap,_files=None,_data=None):
 
 def scan_wifi(hashMap,_files=None,_data=None):
 	hashMap.put("toast", "Проверка связи сканирование сети!")
-	hashMap.put("WIFIConnectScan","")
-	hashMap.put("WIFIStartScan","")
+	
+	if not hashMap.containsKey("WIFIConnectScan"):	
+		hashMap.put("WIFIConnectScan","")
+		hashMap.put("WIFIStartScan","")
+	
 
 	j = { "customcards":         {
 		"options":{
