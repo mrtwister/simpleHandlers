@@ -1,3 +1,9 @@
+from java import jclass
+
+#это для нативного тоста
+from android.widget import Toast
+from com.chaquo.python import Python
+
 import json
 from ru.travelfood.simple_ui import SimpleSQLProvider as sqlClass
 
