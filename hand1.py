@@ -66,11 +66,11 @@ def on_start_barcode(hashMap,_files=None,_data=None):
 	return hashMap
 
 def scan_wifi(hashMap,_files=None,_data=None):
-	hashMap.put("toast", "Проверка связи сканирование сети!")
 	
-	if not hashMap.containsKey("WIFIConnectScan"):	
-		hashMap.put("WIFIConnectScan","")
-		hashMap.put("WIFIStartScan","")
+	
+#	if not hashMap.containsKey("WIFIConnectScan"):	
+	hashMap.put("WIFIConnectScan","")
+	hashMap.put("WIFIStartScan","")
 	
 
 	j = { "customcards":         {
@@ -169,7 +169,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
 	else:
-		hashMap.put("toast", "no results")
+		hashMap.put("toast", "no results1")
 
 
 	hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
