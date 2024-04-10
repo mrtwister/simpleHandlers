@@ -153,6 +153,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 
 			j["customcards"]["cardsdata"]=[]
 			for line in wifi:
+				hashMap.put("toast", "SSID:" + str(line['SSID']) + ". level:" + str(line['level']))
 				c =  {
 					"key": str(line['BSSID']),
 					"ssid": "SSID:"+"<b>"+str(line['SSID'])+"</b>",
@@ -164,6 +165,8 @@ def scan_wifi(hashMap,_files=None,_data=None):
 				j["customcards"]["cardsdata"].append(c)
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
+	else:
+		hashMap.put("toast", "no results")
 
 
 	hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
