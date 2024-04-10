@@ -160,9 +160,9 @@ def scan_wifi(hashMap,_files=None,_data=None):
 
 				j["customcards"]["cardsdata"].append(c)
 
-			hashMap.remove("WIFIResults")
-			hashMap.remove("WIFIConnectScan")
-			hashMap.remove("WIFIStartScan")
+			#hashMap.remove("WIFIResults")
+			#hashMap.remove("WIFIConnectScan")
+			#hashMap.remove("WIFIStartScan")
 	
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))	
