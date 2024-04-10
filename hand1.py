@@ -144,7 +144,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 }
 }
 	if hashMap.containsKey("WIFIResults"):
-		hashMap.put("toast", "Поймал результат")
+		hashMap.put("toast", "Поймал результат1")
 		try:
 			wifi = json.loads(hashMap.get("WIFIResults"))
 
