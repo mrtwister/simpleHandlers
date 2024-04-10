@@ -182,6 +182,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 			wifi = json.loads(hashMap.get("WIFIResults"))
 			hashMap.put("toast", "ok")
 			hashMap.remove("WIFIResults")
+			hashMap.remove("WIFIConnectScan")
 		except ValueError:
 			hashMap.put("toast",str(hashMap.get("WIFIResults")))
 	else:
