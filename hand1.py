@@ -159,8 +159,8 @@ def scan_wifi(hashMap,_files=None,_data=None):
 					}				
 
 				j["customcards"]["cardsdata"].append(c)
-			hashMap.put("toast", "Размер списка " + str(len(wifi)))
-			hashMap.put("toast", "run_sync_wifi")
+			#hashMap.put("toast", "Размер списка " + str(len(wifi)))
+			hashMap.put("toast", "onBackgroundCommand")
 			hashMap.remove("WIFIResults")
 			hashMap.remove("WIFIConnectScan")
 			hashMap.remove("WIFIStartScan")
