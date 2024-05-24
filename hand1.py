@@ -159,7 +159,7 @@ def scan_wifi(hashMap,_files=None,_data=None):
 
 				j["customcards"]["cardsdata"].append(c)
 
-			hashMap.put("RunEvent", '[{"action": "run", "type": "online", "method": "test123"}]')
+			hashMap.put("RunEvent", '[{"action": "run", "type": "online", "method": "РезультатСканирования"}]')
 
 			# hashMap.remove("WIFIResults")
 			# hashMap.remove("WIFIConnectScan")
